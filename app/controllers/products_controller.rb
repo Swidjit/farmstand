@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
       tags = params[:cat].split(',')
       @products = @products.tagged_with([tags],:on => :cat, :any => true)
     else
-      @products = Product.where('quantity > 0')
+      @products = Product.all
     end
 
   end

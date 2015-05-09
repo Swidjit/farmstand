@@ -1,1 +1,15 @@
 =render @products
+#cart
+  #cart-items
+  cart total:
+  .total
+:javascript
+  $('.add-to-cart').on('click',function() {
+    console.log();
+    var data = {
+      user_id: 1,
+      product_id: this.value,
+      product_quantity: parseInt($(this).prev('input').val())
+    }
+    $.post('#{cart_products_path}', data);
+  });
