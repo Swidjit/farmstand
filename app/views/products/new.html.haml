@@ -1,0 +1,6 @@
+=form_for @product, url: products_path, :id =>"post-form" do |f|
+  =f.text_field :title
+  =f.text_field :description
+  =f.number_field :cost
+  =f.submit "submit"
+

@@ -1,7 +1,12 @@
 .row
   .large-12.columns
-    %h3 Luck.  Some claim theirs is good.  Others say theirs is bad.  Many say it does not or cannot exist.  It's time to find out the truth.
-    %hr/
+    #slider1_container{:style => "position: relative; top: 0px; left: 0px; width: 100%; height: 300px;"}
+      %div{:style => "cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 100%; height: 300px;", :u => "slides"}
+        %div
+          =image_tag("worker.png")
+        %div
+          =image_tag("travel.png")
+
 .row
   .large-4.columns
     %img{:src => "http://placehold.it/400x300&text=[img]"}/
@@ -27,3 +32,4 @@
           %p We'd love to hear from you, you attractive person you.
         .large-3.columns
           %a.radius.button.right{:href => "#"} Contact Us
+
