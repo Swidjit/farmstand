@@ -13,6 +13,8 @@
     = favicon_link_tag "favicon.ico"
     = csrf_meta_tag
 
+    %script{:src => "https://checkout.stripe.com/checkout.js"}
+
   %body
     =render :partial => 'layouts/head'
     %p.notice= notice

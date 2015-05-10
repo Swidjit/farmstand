@@ -3,6 +3,8 @@
   #cart-items
   cart total:
   .total
+%button#checkout
+  hey
 :javascript
   $('.add-to-cart').on('click',function() {
     console.log();
@@ -12,4 +14,29 @@
       product_quantity: parseInt($(this).prev('input').val())
     }
     $.post('#{cart_products_path}', data);
+  });
+  var key = '#{j Rails.configuration.stripe[:publishable_key]}';
+  var handler = StripeCheckout.configure({
+    key: key,
+    token: function(token, args) {
+          document.getElementById("stripeToken").value = token.id;
+          document.getElementById("stripeEmail").value = token.email;
+          document.getElementById("stripeCharge").value = cost;
+          document.getElementById("stripeSession").value = $.cookie('session_id');
+          document.getElementById("chargeForm").submit();
+        }
+    });
+  $('#checkout').on('click', function(e) {
+    alert("hey");
+    total_cost = parseInt($('#cart .total').text());
+    console.log("uo");
+    cost = total_cost*100;
+    handler.open({
+      name: '816 South Meadow',
+      description: 'Farmstand Purchase ($'+total_cost+')',
+      amount: cost,
+      shippingAddress: false
+    });
+
+    e.preventDefault();
   });

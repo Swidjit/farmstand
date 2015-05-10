@@ -20,6 +20,8 @@ gem 'foundation-rails', '5.4.5'
 gem 'foundation-icons-sass-rails'
 gem 'devise'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
   gem 'coffee-rails', '~> 4.0.0'
